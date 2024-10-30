@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Google Maps API demo</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+    /* Necessary styling for map container */
+    #map {
+      background: #CCC;
+      height: 400px; /* Adjust the height as needed */
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div id="map"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Google Maps API with your API Key -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcI0vxTU33OBI8IlG5UUjeOtEvbg9Fh2g&callback=initMap" async defer></script>
+
+  <!-- JavaScript to initialize the map -->
+  <script>
+    let map;
+
+    function initMap() {
+      // Set the default location (Taipei City Hall Theater)
+      const location = { lat: 25.0374865, lng: 121.5647688 };
+
+      // Create the map
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: location,
+        zoom: 16,
+        mapTypeId: 'terrain'
+      });
+
+      // Place a marker
+      const marker = new google.maps.Marker({
+        position: location,
+        map: map
+      });
+    }
+  </script>
+</body>
+</html>
